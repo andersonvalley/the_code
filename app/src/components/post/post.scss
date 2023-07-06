@@ -1,0 +1,50 @@
+.post {
+  background-color: var(--bg);
+  max-width: 700px;
+  width: 100%;
+  border-radius: 12px;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  padding: 13px 15px;
+
+  &:hover {
+    box-shadow: 0px 12px 52px rgba(0, 0, 0, 0.1), 0px 12px 52px rgba(0, 0, 0, 0.1);
+  }
+
+  &__header {
+  }
+
+  &__img {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+  }
+
+  &__views {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    color: var(--color-text);
+
+    svg {
+      margin-right: 6px;
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+    font-weight: 700;
+    margin-bottom: 13px;
+  }
+
+  &__subtitle {
+    margin-bottom: 7px;
+  }
+}

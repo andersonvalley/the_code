@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './vars.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+html,
+body {
+  background-color: var(--bg-main);
+  color: var(--color-text-main);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.container {
+  max-width: var(--max-width);
+  padding: 0 30px;
+  margin: 0 auto;
+
+  @media (max-width: 600px) {
+    padding: 0 10px;
+  }
+}
+
+.btn {
+  border-radius: 20px;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms ease-in;
+  background-color: var(--btn-second);
+
+  &:hover {
+    background-color: var(--btn-second-hover);
+    border-radius: 5px;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &-default {
+    width: 35px;
+    height: 35px;
+  }
+
+  &-user {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  &-editor {
+    background-color: var(--btn-third);
+    margin-right: 20px;
+
+    &:hover {
+      border-radius: 20px;
+      background-color: var(--btn-third-hover);
+    }
+
+    span {
+      color: var(--bg);
+    }
+
+    svg {
+      fill: var(--bg);
+    }
+
+    svg path {
+      stroke: var(--bg);
+    }
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 80px;
+
+  &-header {
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.page {
+  margin-top: 30px;
+
+  &-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
