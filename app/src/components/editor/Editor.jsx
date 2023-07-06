@@ -10,7 +10,8 @@ import SimpleImage from '@editorjs/simple-image'
 import { useEffect, useState } from 'react'
 import './editor.scss'
 
-export const Editor = () => {
+
+function Editor() {
   const [editorReady, setEditorReady] = useState(false)
 
   useEffect(() => {
@@ -183,3 +184,5 @@ export const Editor = () => {
     </>
   )
 }
+
+export default Editor

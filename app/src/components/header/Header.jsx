@@ -35,6 +35,10 @@ export const Header = () => {
     dispatch(toggleMenu())
   }
 
+  const toggleThemeHandler = () => {
+    theme === themeVariant.LIGHT ? changeTheme(themeVariant.DARK) : changeTheme(themeVariant.LIGHT)
+  }
+
   const navigateToMain = () => {
     if (isEditorOpen) {
       // переделать
@@ -67,9 +71,7 @@ export const Header = () => {
               <button
                 data-title="Тема"
                 className={theme === themeVariant.LIGHT ? 'btn-theme btn active light' : 'btn-theme btn dark'}
-                onClick={() =>
-                  theme === themeVariant.LIGHT ? changeTheme(themeVariant.DARK) : changeTheme(themeVariant.LIGHT)
-                }
+                onClick={toggleThemeHandler}
               >
                 {theme === themeVariant.LIGHT ? <BiSun size={25} /> : <RxMoon size={25} />}
               </button>

@@ -9,17 +9,15 @@ const storageName = 'data-theme'
 
 export const useTheme = () => {
   const [theme, setTheme] = useState(themeVariant.LIGHT)
-  let html
+  let html: null | HTMLElement = null
   if (typeof window === 'object') {
-    document.addEventListener("DOMContentLoaded", function () {
-      html = document.querySelector('html')
-    });
+    html = document.querySelector('html')
   }
 
   const changeTheme = useCallback(
     (variant: themeVariant) => {
       localStorage.setItem(storageName, variant)
-      // html?.setAttribute(storageName, variant)
+      html?.setAttribute(storageName, variant)
       setTheme(variant)
     },
     [html]
