@@ -6,6 +6,7 @@ import Header from '@editorjs/header'
 import ImageTool from '@editorjs/image'
 import List from '@editorjs/list'
 import SimpleImage from '@editorjs/simple-image'
+
 import { useEffect, useState } from 'react'
 import './editor.scss'
 

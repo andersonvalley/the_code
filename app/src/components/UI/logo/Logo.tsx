@@ -1,11 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 
+import { FC } from "react"
 import LogoIcon from '../../../../../public/img/logo.png'
 
-export const Logo = () => {
+interface Props {
+  navigateToMain: () => void
+}
+
+export const Logo: FC<Props> = ({ navigateToMain }) => {
   return (
-    <Link href="/" className="flex items-center ml-10 gap-5">
+    <Link onClick={navigateToMain} href='/' className="flex items-center ml-10 gap-5">
       <Image
         className='w-10'
         src={LogoIcon}

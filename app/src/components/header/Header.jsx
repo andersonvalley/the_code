@@ -7,28 +7,43 @@ import { HiMenuAlt1 } from 'react-icons/hi'
 import { RxMoon } from 'react-icons/rx'
 
 import { useState } from 'react'
-import { useAppDispatch } from '../../hooks/useRedux'
+import { useAppDispatch, useAppSelector } from '../../hooks/useRedux'
 import { toggleMenu } from '../../store/slices/sidebarSlice'
 import { Logo } from '../UI/logo/Logo'
 import { Search } from '../UI/search/Search'
 
-import { useTheme } from '../../hooks/useTheme'
+import { useRouter } from 'next/navigation'
+import { themeVariant, useTheme } from '../../hooks/useTheme'
+import { closeEditor, openEditor } from '../../store/slices/editorSlice'
 import { AppRoutes } from '../routes/AppRoutes'
 import './header.scss'
 
 export const Header = () => {
+  const router = useRouter()
   const { theme, changeTheme } = useTheme()
+  const { isOpen: isEditorOpen } = useAppSelector(store => store.editor)
   const [searchValue, setSearchValue] = useState('')
   const dispatch = useAppDispatch()
   const isAuth = false
 
   const openEditorHandler = () => {
-    // document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
     dispatch(openEditor())
   }
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu())
+  }
+
+  const navigateToMain = () => {
+    if (isEditorOpen) {
+      // переделать
+      alert('realize confirm close')
+      const response = confirm('close')
+      if (response) {
+        dispatch(closeEditor())
+      }
+    }
   }
 
   return (
@@ -39,7 +54,7 @@ export const Header = () => {
             <button onClick={toggleMenuHandler} className="btn burger">
               <HiMenuAlt1 size={25} />
             </button>
-            <Logo />
+            <Logo navigateToMain={navigateToMain} />
           </div>
           <div className="header__controls">
             <Search value={searchValue} onChange={setSearchValue} />
@@ -49,7 +64,7 @@ export const Header = () => {
                 <GrFormAdd size={25} />
               </button>
 
-              {/* <button
+              <button
                 data-title="Тема"
                 className={theme === themeVariant.LIGHT ? 'btn-theme btn active light' : 'btn-theme btn dark'}
                 onClick={() =>
@@ -57,7 +72,7 @@ export const Header = () => {
                 }
               >
                 {theme === themeVariant.LIGHT ? <BiSun size={25} /> : <RxMoon size={25} />}
-              </button> */}
+              </button>
 
               <Link className="btn btn-default" href={AppRoutes.FAVORITES}>
                 <BiCollection size={25} />

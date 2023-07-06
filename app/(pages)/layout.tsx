@@ -4,6 +4,7 @@ import { Header } from '@/components/header/Header'
 import { store } from '@/src/store/store'
 import { Fira_Code } from 'next/font/google'
 import { Provider } from 'react-redux'
+import { EditorComponent } from '../src/components/editor/Index'
 
 import '@/src/styles/global.scss'
 const FiraCode = Fira_Code({ subsets: ['latin'] })
@@ -20,7 +21,7 @@ export default function RootLayout({ children }: Props) {
           <Header />
           <div className="page">
             <main className="main">{children}</main>
-            {/* <EditorComponent /> */}
+            <EditorComponent />
           </div>
         </body>
       </html>
