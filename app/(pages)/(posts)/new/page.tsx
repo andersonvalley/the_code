@@ -1,7 +1,8 @@
+import { MainFeed } from "@/app/src/components/feed/mainFeed/MainFeed";
 
 
 export default function New() {
   return (
-    <h1>new</h1>
+    <MainFeed />
   )
 }
