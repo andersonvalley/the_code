@@ -1,13 +1,14 @@
 import { useAppSelector } from '@/src/hooks/useRedux';
 import dynamic from 'next/dynamic';
-import './editor.scss';
+import './Editorjs/editor.scss';
 
 let Editor;
 
 export const EditorComponent = () => {
   const { isOpen } = useAppSelector(store => store.editor)
+
   if (typeof window !== "undefined") {
-    Editor = dynamic(() => import('./Editor'));
+    Editor = dynamic(() => import('./Editorjs/Editor'));
   }
 
   return (

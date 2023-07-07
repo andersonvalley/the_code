@@ -1,0 +1,89 @@
+.editor {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-main);
+  color: var(--color-text-main);
+  border-radius: 20px;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+
+  &__wrapper {
+    z-index: 5;
+    width: 100%;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background-color: var(--bg-header);
+    box-shadow: 0 0 10px var(--box-shadow);
+    border-radius: 12px;
+    margin-top: 80px;
+    padding-top: 20px;
+    position: relative;
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+
+    &-container.container {
+      max-width: 650px;
+      padding-left: 0;
+    }
+  }
+
+  &__submit.btn {
+    width: auto;
+    padding: 10px 30px;
+    background-color: var(--icon-pop);
+    color: #fff;
+    border-radius: 4px;
+  }
+}
+
+#editor {
+  .ce-header[contentEditable='true'][data-placeholder]::before {
+    font-weight: 600;
+    opacity: 0.3;
+  }
+
+  .ce-header {
+    margin-bottom: 10px;
+  }
+
+  h1.ce-header {
+    font-size: 2.6rem;
+    line-height: 2rem;
+    font-weight: 600;
+  }
+
+  h2.ce-header {
+    font-size: 2.4rem;
+    line-height: 2.3rem;
+    font-weight: 600;
+  }
+
+  h3.ce-header {
+    font-size: 2.2rem;
+    line-height: 2.3rem;
+
+    font-weight: 600;
+  }
+
+  h4.ce-header {
+    font-size: 2rem;
+    line-height: 2.3rem;
+
+    font-weight: 600;
+  }
+}
+
+.hljs,
+.hljs-subst {
+  border-radius: 10px !important;
+  padding: 14px 10px !important;
+}

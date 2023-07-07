@@ -1,5 +1,5 @@
 .sidebar {
-  transition: all 350ms cubic-bezier(0.65, 1.95, 0.03, 0.32);
+  transition: all 350ms cubic-bezier(0.32, 0.03, 1.95, 0.65);
   border-radius: 10px;
   background-color: var(--bg-header);
   box-shadow: 0 0 10px var(--box-shadow);
@@ -7,6 +7,10 @@
   max-width: 300px;
   width: 100%;
   padding: 10px 15px;
+
+  &.hide {
+    transform: translateX(500px);
+  }
 
   @media (max-width: 900px) {
     display: none;

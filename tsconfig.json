@@ -44,7 +44,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/auth/AuthForm.js"
+    "src/components/auth/AuthForm.js",
+    "app/src/components/editor/Editorjs/config/useEditor.jsx"
   ],
   "exclude": [
     "node_modules"

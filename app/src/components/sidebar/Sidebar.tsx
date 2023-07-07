@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 import Image from 'next/image'
+import { useAppSelector } from '../../hooks/useRedux'
 import './sidebar.scss'
 
 interface data {
@@ -18,8 +19,10 @@ interface Props {
 }
 
 export const Sidebar: FC<Props> = ({ title, path, data }) => {
+  const { isOpenRightSidebar } = useAppSelector(store => store.sidebar)
+
   return (
-    <aside className="sticky sidebar">
+    <aside className={isOpenRightSidebar ? 'sticky sidebar open' : 'sticky sidebar hide'}>
       <div className="sidebar__header mb-6 flex justify-between">
         <div className="sidebar__title font-bold">{title}</div>
         <Link className="sidebar__link" href={path}>
